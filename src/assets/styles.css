@@ -1,0 +1,87 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+/* 
+@import url('https: //fonts.cdnfonts.com/css/gordita');
+@import url("http://fonts.cdnfonts.com/css/samsung-sharp-sans");
+@import url('https://fonts.cdnfonts.com/css/nexa-bold'); */
+
+.resizer {
+  display: inline-block;
+  width: 4px;
+  height: 50%;
+  position: absolute;
+  right: 0;
+  top: 25%;
+  transform: translateX(50%);
+  touch-action: none;
+}
+
+.resizer:hover {
+  background: #646464;
+  z-index: 1;
+}
+
+.resizer.isResizing {
+  background: #1976d2;
+}
+
+.tableWrap {
+  display: block;
+  max-width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  border-bottom: 1px solid black;
+}
+
+.tableWrap th,
+.tableWrap td {
+  margin: 0;
+  padding: 0.5rem;
+  /* The secret sauce */
+  /* Each cell should grow equally */
+  width: 1%;
+  /* But "collapsed" cells should be as small as possible */
+}
+
+.tableWrap th.collapse,
+.tableWrap td.collapse {
+  width: 0.0000000001%;
+}
+
+.tableWrap th :last-child,
+.tableWrap td :last-child {
+  border-right: 0;
+}
+
+.MuiInputBase-root .MuiSelect-select {
+  @apply py-2;
+}
+
+.JoyChip-root {
+  @apply font-gordita;
+  /* @apply font-nexa;
+  @apply font-samsung; */
+}
+
+.JoyChip-colorNeutral.JoyChip-variantPlain .JoyCheckbox-action {
+  @apply border;
+  @apply border-[#D8D8DF];
+}
+
+.JoyChip-colorNeutral.JoyChip-variantPlain:hover {
+  @apply bg-[#EBEBEF];
+  @apply border-[#B9B9C6];
+}
+
+.JoyChip-colorPrimary.JoyChip-variantSoft .Joy-checked {
+  @apply text-[#096BDE];
+}
+
+.JoyChip-colorPrimary.JoyChip-variantSoft {
+  @apply border-[#ADDBFF];
+  @apply bg-[#DDF1FF];
+  @apply text-[#054DA7]
+}
