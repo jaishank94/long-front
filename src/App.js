@@ -10,6 +10,7 @@ import { MenuItem } from '@material-ui/core';
 import FilterBadges from './components/FilterBadges';
 import HeaderNew from './components/HeaderNew';
 
+let colorGrading = [];
 function App() {
 
   const [data, setData] = React.useState(null);
@@ -18,7 +19,6 @@ function App() {
   const [active1, setActive1] = useState([])
   const [testorganismactive, settestorganismactive] = useState([])
   const [sourceactive, setsourceactive] = useState([])
-
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -48,10 +48,12 @@ function App() {
     //  fetch(process.env.REACT_APP_BACKEND_URL)
     fetch("http://localhost:4000/")
       .then((res) => res.json())
-      .then((data) => setData(data));
-    console.log(data)
+      .then((data) => {
+        setData(data.filter(value => JSON.stringify(value) !== '{}'))
+      });
   }, []);
 
+  // console.log(data, "long data")
 
 
 
@@ -101,18 +103,22 @@ function App() {
   );
 
   const Genres = ({ values, color }) => {
-    if (values != null)
-      return (
-        <>
-          {
-            values.map((genre, idx) => {
-              return (
-                <Chip label={genre} size="small" color={color} variant="outlined" key={idx} />
+    console.log("called");
+    colorGrading.push(...values);
+    return (
+      <>
+        {
+          values.map((genre, idx) => {
+            return (
+              <Chip label={genre} size="small" color={color} variant="outlined" key={idx} />
               );
             })}
-        </>
-      );
+      </>
+    )
   };
+  const filterDuplicate = colorGrading.filter((item,
+    index) => colorGrading.indexOf(item) === index);
+  console.log(filterDuplicate, 'ColorGrading')
 
   const Levels = ({ values }, idx) => {
     return (
@@ -129,7 +135,7 @@ function App() {
   return (
     <React.Fragment>
       {/* <Header /> */}
-      <HeaderNew/>
+      <HeaderNew />
       <section className='lg:mx-auto md:mx-5 max-w-[88rem] mt-10 overflow-hidden'>
 
         <div className='center-component mb-8'>

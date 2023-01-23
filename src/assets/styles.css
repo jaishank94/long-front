@@ -85,3 +85,13 @@
   @apply bg-[#DDF1FF];
   @apply text-[#054DA7]
 }
+.JoyChip-root .JoyCheckbox-action .JoyCheckbox-input {
+  left: 0;
+}
+
+.MuiDrawer-paper.MuiDrawer-paperAnchorRight {
+  @apply w-[90%];
+  max-width: '80rem';
+  @apply md:w-3/5
+}
+
