@@ -11,6 +11,7 @@ import {
 
 import MenuIcon from "@mui/icons-material/Menu";
 import { Box, Button, Chip } from "@mui/material";
+import FullWidthTabs from "./SupplementDetailsTab";
 
 const useStyles = makeStyles(() => ({
   link: {
@@ -25,21 +26,9 @@ const useStyles = makeStyles(() => ({
 
 function SupplementDrawer({ open, trigger, rowData }) {
   const classes = useStyles();
-  const { alsogoodfor, name, testorganism } = rowData;
+  const { name, othername } = rowData;
 
-  const Genres = ({ values, color }) => {
-    console.log("called");
-    return (
-      <>
-        {
-          values.map((genre, idx) => {
-            return (
-              <Chip label={genre} size="small" color={color} variant="outlined" key={idx} />
-            );
-          })}
-      </>
-    )
-  };
+  
   return (
     <>
       <Drawer
@@ -47,10 +36,8 @@ function SupplementDrawer({ open, trigger, rowData }) {
         anchor={'right'}
         onClose={() => trigger(false)}
       >
-        <Box
-          sx={{ marginTop: '10rem', paddingLeft: '10px', paddingRight: '10px' }}
-        >
-          <div className=" py-2 mb-4">
+        <Box>
+          {/* <div className=" py-2 mb-4">
             <label>Name: </label>
             <label className="font-semibold">{name}</label>
           </div>
@@ -64,6 +51,17 @@ function SupplementDrawer({ open, trigger, rowData }) {
           </div>
           <div className="text-center mt-10">
             <button color="primary" className="px-3 py-2 rounded bg-[#1976d2] text-white">BUY NOW</button>
+          </div> */}
+          <div className="px-10 text-center mt-5 md:mt-10 ">
+            <p className=" font-samsung text-3xl">{name}</p>
+            <p className="font-gordita text-lg text-gray-400">{othername}</p>
+            <div className="text-center mt-14 gap-4 flex justify-center">
+              <button color="primary" className="px-6 py-2 text-xl font-samsung rounded bg-[#1976d2] text-white">BUY NOW</button>
+              <button color="primary" className="px-6 py-2 text-xl font-samsung rounded bg-[#1976d2] text-white">SELL</button>
+            </div>
+          </div>
+          <div className="mt-10">
+            <FullWidthTabs rowData={rowData} />
           </div>
         </Box>
       </Drawer>

@@ -45,8 +45,8 @@ function App() {
 
 
   React.useEffect(() => {
-    //  fetch(process.env.REACT_APP_BACKEND_URL)
-    fetch("http://localhost:4000/")
+    fetch("https://long-back.onrender.com/")
+      // fetch("http://localhost:4000/")
       .then((res) => res.json())
       .then((data) => {
         setData(data.filter(value => JSON.stringify(value) !== '{}'))
@@ -111,8 +111,8 @@ function App() {
           values.map((genre, idx) => {
             return (
               <Chip label={genre} size="small" color={color} variant="outlined" key={idx} />
-              );
-            })}
+            );
+          })}
       </>
     )
   };
