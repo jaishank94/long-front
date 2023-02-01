@@ -57,14 +57,14 @@ export default function FullWidthTabs({ rowData }) {
   const Genres = ({ values, color }) => {
     console.log("called");
     return (
-      <>
+      <div className='flex gap-2'>
         {
           values.map((genre, idx) => {
             return (
-              <Chip label={genre} size="small" color={color} variant="outlined" key={idx} />
+              <Chip label={genre} color={color} variant="outlined" key={idx} />
             );
           })}
-      </>
+      </div>
     )
   };
   return (
