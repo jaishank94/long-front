@@ -50,13 +50,13 @@ function HeaderNew() {
           <DrawerComponent />
         ) : (
           <div className={classes.navlinks}>
-            <a href="#" className={classes.link}>
+            <a href="/" className={classes.link}>
               LONGEVITY SUPPLEMENTS
             </a>
-            <a href="#" className={classes.link}>
+            <a href="/aboutus" className={classes.link}>
               ABOUT US
             </a>
-            <a href="#" className={classes.link}>
+            <a href="/contact" className={classes.link}>
               OFFER YOUR SUPPLEMENT
             </a>
           </div>

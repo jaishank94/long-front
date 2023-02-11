@@ -9,9 +9,11 @@ import { Chip } from '@mui/material';
 import { MenuItem } from '@material-ui/core';
 import FilterBadges from './components/FilterBadges';
 import HeaderNew from './components/HeaderNew';
+import About from './components/Aboutus';
+import Contact from './components/Contactus';
 
 let colorGrading = [];
-function App() {
+function Home() {
 
   const [data, setData] = React.useState(null);
   const [value, setValue] = useState('')
@@ -135,7 +137,7 @@ function App() {
   return (
     <React.Fragment>
       {/* <Header /> */}
-      <HeaderNew />
+      {/* <HeaderNew /> */}
       <section className='lg:mx-auto md:mx-5 max-w-[88rem] mt-10 overflow-hidden'>
 
         <div className='center-component mb-8'>
@@ -211,4 +213,29 @@ function App() {
   );
 }
 
-export default App;
+function HomePage() {
+  if (window.location.pathname === "/") {
+    return <Home />
+  }
+}
+function Aboutus() {
+  if (window.location.pathname === "/aboutus") {
+    return <About />
+  }
+}
+function Contactus() {
+  if (window.location.pathname === "/contact") {
+    return <Contact />
+  }
+}
+
+export default function App() {
+  return (
+    <React.Fragment>
+      <HeaderNew />
+      {HomePage()}
+      {Aboutus()}
+      {Contactus()}
+    </React.Fragment>
+  )
+}
